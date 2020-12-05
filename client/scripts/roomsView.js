@@ -5,12 +5,7 @@ var RoomsView = {
   $room: $('#rooms'),
 
   renderRoom: function(room) {
-    var currentRoom = MessagesView.render(room);
-
-    $(button).on('click', function() {
-      console.log();
-    });
-
+    RoomsView.$select.append(new Option(`${room}`, `${room}`));
   },
 
 
