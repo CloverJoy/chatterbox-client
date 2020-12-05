@@ -15,6 +15,7 @@ var MessagesView = {
       //iterate through the data, append messages that match with the room.
       for (var currentData of data.results) {
         if (currentRoom === currentData.roomname) {
+          currentData.createdAt = MessagesView.formatDate(currentData.createdAt);
           MessagesView.renderMessage(currentData);
 
         }
@@ -35,6 +36,12 @@ var MessagesView = {
 
   render: function() {
 
+  },
+
+  formatDate: function(date) {
+    var newDate = '';
+    newDate = date.slice(11, 19);
+    return newDate;
   }
 
 };

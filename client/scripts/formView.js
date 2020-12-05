@@ -23,6 +23,10 @@ var FormView = {
     message.roomname = $('#rooms select').val();
     Parse.create(message);
 
+    $('#message').val('');
+
+    var currentRoom = $('#rooms select').val();
+    RoomsView.renderRoom(currentRoom);
 
 
     console.log('click!');
