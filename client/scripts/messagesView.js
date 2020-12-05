@@ -8,22 +8,27 @@ var MessagesView = {
   },
 
   initialize: function() {
-    //somehow we need to access the data from the parse readall
+
     Parse.readAll((data) => {
-      // examine the response from the server request:
-      data.forEach(data, function() {
-        var roomname = data.roomname;
-        var message = data.text;
-        var userName = data.username;
-        //if roomname is not in rooms.storage, add roomname to list
-        if (Rooms.storage.indexOf(roomname) === -1) {
-          Rooms.storage.push(roomname);
+      //check the current value of room
+      var currentRoom = $('#rooms select').val();
+      //iterate through the data, append messages that match with the room.
+      for (var currentData of data.results) {
+        if (currentRoom === currentData.roomname) {
+          MessagesView.renderMessage(currentData);
+
         }
-
-        //render message and add to correct room
-      });
-
+      }
     });
+    var $user = $('.username');
+
+
+    $user.on('click', function(event) {
+      console.log(event);
+      console.log('test');
+      Friends.toggle(this.val());
+    });
+
 
 
   },

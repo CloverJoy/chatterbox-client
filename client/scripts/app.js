@@ -10,10 +10,12 @@ var App = {
     FormView.initialize();
     RoomsView.initialize();
     MessagesView.initialize();
+    // FriendsView.initialize();
 
     // Fetch initial batch of messages
     App.startSpinner();
     App.fetch(App.stopSpinner);
+    setInterval(App.fetch, 5000);
 
   },
 

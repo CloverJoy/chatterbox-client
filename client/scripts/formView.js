@@ -11,6 +11,19 @@ var FormView = {
 
     event.preventDefault();
     //do some logic here
+    //var message = {};
+    //name, message, room
+    //message.name = App.name
+    //message.text = what we input
+    //message.room = the current room when
+    //Parse.create(message)
+    var message = {};
+    message.username = App.username;
+    message.text = $('#message').val();
+    message.roomname = $('#rooms select').val();
+    Parse.create(message);
+
+
 
     console.log('click!');
   },
